@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ENV = 'qiime2-2022.2'
+FASTERQ_DUMP_PATH = '/home/qiime2/sratoolkit.3.0.2-ubuntu64/bin/fasterq-dump'
 S3_STUDIES_PATH = '/home/qiime2/qiime2storage/studies'
 S3_SCRATCH_DIR = '/home/qiime2/qiime2storage/tmp'
 

@@ -4,6 +4,7 @@ from celery import shared_task
 from celery_progress.backend import ProgressRecorder
 
 from config.settings import ENV
+from config.settings import FASTERQ_DUMP_PATH
 from config.settings import S3_SCRATCH_DIR
 from config.settings import S3_STUDIES_PATH
 from . import utils
@@ -24,7 +25,7 @@ def fetch_fastq(self, run_id):
     utils.create_dir(output_dir)
 
     # Fetch the fastq file(s)
-    command = f'fasterq-dump {run_id} -O {output_dir} -t {S3_SCRATCH_DIR}'
+    command = f'{FASTERQ_DUMP_PATH} {run_id} -O {output_dir} -t {S3_SCRATCH_DIR}'
     print(command)
     return_code = utils.run_conda_command(cmd=command, env=ENV)
 
