@@ -15,13 +15,13 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ENV = 'qiime2-2022.2'
-# S3_STUDIES_PATH = '/home/qiime2/qiime2storage/studies'
-# S3_SCRATCH_DIR = '/home/qiime2/qiime2storage/tmp'
+ENV = 'qiime2-2022.2'
+S3_STUDIES_PATH = '/home/qiime2/qiime2storage/studies'
+S3_SCRATCH_DIR = '/home/qiime2/qiime2storage/tmp'
 
-ENV = 'qiime2-2022.11'
-S3_STUDIES_PATH = '/Users/burak/Qiime2/SRA_Toolkit_Trials'
-S3_SCRATCH_DIR = '/Users/burak/Qiime2/SRA_Toolkit_Trials/temp'
+# ENV = 'qiime2-2022.11'
+# S3_STUDIES_PATH = '/Users/burak/Qiime2/SRA_Toolkit_Trials'
+# S3_SCRATCH_DIR = '/Users/burak/Qiime2/SRA_Toolkit_Trials/temp'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
