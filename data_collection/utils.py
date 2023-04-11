@@ -25,7 +25,7 @@ def create_dir(directory):
 
 def create_txt(file_path, contents=''):
     """
-    Create an empty text file.
+    Create a text file.
     """
     with open(file_path, 'w') as f:
         if contents:
