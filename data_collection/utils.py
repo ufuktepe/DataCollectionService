@@ -7,7 +7,7 @@ def run_conda_command(cmd, env):
     """
     Run the shell command in the given conda environment.
     """
-    cmd = f'conda run --no-capture-output -n {env} ' + cmd
+    cmd = f'/home/qiime2/miniconda/bin/conda run --no-capture-output -n {env} ' + cmd
     process = subprocess.run(cmd, shell=True)
 
     return process.returncode
