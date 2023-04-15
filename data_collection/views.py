@@ -1,4 +1,5 @@
 import json
+import logging
 
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -6,6 +7,8 @@ from rest_framework import status
 from rest_framework.response import Response
 
 from .tasks import fetch_fastq
+
+logger = logging.getLogger(__name__)
 
 
 @csrf_exempt
@@ -16,6 +19,7 @@ def test(request):
 @csrf_exempt
 def handle_request(request):
     if request.method != 'POST':
+        logger.info('Received invalid request.')
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
     request_body = json.loads(request.body)
@@ -31,7 +35,6 @@ def handle_request(request):
     try:
         worker = fetch_fastq.delay(run_id)
     except Exception as e:
-        print('EXCEPTION OCCURED')
         print(str(e))
         return Response('Error in fetching the fastq files.', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 

@@ -114,6 +114,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+
+    # retain the default loggers
+    'disable_existing_loggers': False,
+
+    'handlers': {
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'data_collection.log',
+            'formatter': 'verbose',
+        },
+    },
+    # A logger for DEBUG that has a handler called 'file'.
+    'loggers': {
+        '': {
+            # Call the file variable in handler
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+    'formatters': {
+            'verbose': {
+                'format': '%(name)s: %(asctime)s | %(levelname)s | %(filename)s:%(lineno)s | %(message)s'
+            },
+        },
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
