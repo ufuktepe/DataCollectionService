@@ -21,6 +21,7 @@ S3_STUDIES_PATH = '/home/qiime2/qiime2storage/studies/public'
 S3_SCRATCH_DIR = '/home/qiime2/qiime2storage/tmp'
 
 # ENV = 'qiime2-2022.11'
+# FASTERQ_DUMP_PATH = '/Users/burak/Downloads/sratoolkit.3.0.1-mac64/bin/fasterq-dump'
 # S3_STUDIES_PATH = '/Users/burak/Qiime2/SRA_Toolkit_Trials'
 # S3_SCRATCH_DIR = '/Users/burak/Qiime2/SRA_Toolkit_Trials/temp'
 
@@ -31,7 +32,7 @@ S3_SCRATCH_DIR = '/home/qiime2/qiime2storage/tmp'
 SECRET_KEY = '#s)9gx4+-99%a5q4iga_)@!of*bz=j7gjbd5u^-01cz0q_e15('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

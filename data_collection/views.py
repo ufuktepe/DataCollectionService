@@ -18,9 +18,11 @@ def test(request):
 
 @csrf_exempt
 def handle_request(request):
+    logger.info('Received request.')
+
     if request.method != 'POST':
         logger.info('Received invalid request.')
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({'task_id': '', 'error': 'Request must be a POST request.'})
 
     request_body = json.loads(request.body)
 
@@ -28,15 +30,18 @@ def handle_request(request):
 
     if run_id is None:
         print('Invalid run ID.')
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        logger.error(f'No run id found!')
+        return JsonResponse({'task_id': '', 'error': 'No run id found!'})
 
+    logger.info(f'Run id is {run_id}')
     print(f'Run ID: {run_id}')
 
     try:
         worker = fetch_fastq.delay(run_id)
     except Exception as e:
         print(str(e))
-        return Response('Error in fetching the fastq files.', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        logger.error(str(e))
+        return JsonResponse({'task_id': '', 'error': 'Error in fetching the fastq files.'})
 
     res = JsonResponse({'task_id': worker.task_id})
 
