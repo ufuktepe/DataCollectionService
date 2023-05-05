@@ -15,7 +15,7 @@ Install Supervisor using ```sudo apt-get install supervisor```
 
 
 ## Usage
-
+1. Mount your S3 bucket to the EC2 instance.
 1. Provide file paths for FASTERQ_DUMP_PATH, S3_STUDIES_PATH, and S3_SCRATCH_DIR in config/settings.py
 2. Start the redis server using ```sudo systemctl start redis```
 3. Run the following commands.
