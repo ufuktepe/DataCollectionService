@@ -49,7 +49,7 @@ sudo service nginx start
 gunicorn -c config/dev.py
 ```
 
-4. To fetch DNA sequencing data from SRA send a post request to port 8000. The body of the post request must include json data with the following format:
+7. To fetch DNA sequencing data from SRA send a post request to port 8000. The body of the post request must include json data with the following format:
 {
   "run_id": "SRR18828316"
 }
